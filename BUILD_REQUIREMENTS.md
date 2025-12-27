@@ -101,4 +101,4 @@ The build can be integrated into CI/CD pipelines using:
 
 - The `node_modules/` and `dist/` directories are excluded from version control (see `.gitignore`)
 - Build artifacts are optimized for production with minification and tree-shaking
-- The project uses SWC for fast React Fast Refresh during development
+- The project uses SWC for React Fast Refresh during development
