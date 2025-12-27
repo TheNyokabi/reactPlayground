@@ -83,7 +83,7 @@ function LLMChat() {
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+        onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
         disabled={loading}
       />
       <button onClick={sendMessage} disabled={loading}>
@@ -139,6 +139,7 @@ app.post('/api/chat', async (req, res) => {
 
     res.json({ response: completion.choices[0].message.content });
   } catch (error) {
+    console.error('OpenAI API error:', error);
     res.status(500).json({ error: 'Failed to process request' });
   }
 });
@@ -173,10 +174,12 @@ const streamResponse = async (prompt: string) => {
   });
 
   const reader = response.body?.getReader();
+  if (!reader) return;
+  
   const decoder = new TextDecoder();
 
   while (true) {
-    const { done, value } = await reader!.read();
+    const { done, value } = await reader.read();
     if (done) break;
     
     const chunk = decoder.decode(value);
