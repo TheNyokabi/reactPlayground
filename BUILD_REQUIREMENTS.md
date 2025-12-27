@@ -16,7 +16,7 @@ The project uses the following key dependencies:
 - `react-dom`: ^19.1.0
 
 ### Development Dependencies
-- `vite`: ^7.0.4 - Build tool and dev server
+- `vite`: ^7.0.4 - Build tool and dev server (updated to 7.3.0 for security fixes)
 - `typescript`: ~5.8.3 - TypeScript compiler
 - `@vitejs/plugin-react-swc`: ^3.10.2 - React plugin for Vite with SWC
 - `eslint`: ^9.30.1 - Linting tool
