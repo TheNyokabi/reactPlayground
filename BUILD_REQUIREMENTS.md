@@ -40,7 +40,16 @@ npm run lint
 
 Runs ESLint to check code quality and enforce coding standards.
 
-### 3. Build for Production
+### 3. Security Audit
+
+```bash
+npm audit
+npm audit fix
+```
+
+Check for and fix security vulnerabilities in dependencies before building.
+
+### 4. Build for Production
 
 ```bash
 npm run build
@@ -52,7 +61,7 @@ This command performs two steps:
 
 The build output is generated in the `dist/` directory.
 
-### 4. Development Server
+### 5. Development Server
 
 ```bash
 npm run dev
@@ -60,7 +69,7 @@ npm run dev
 
 Starts the Vite development server with hot module replacement (HMR).
 
-### 5. Preview Production Build
+### 6. Preview Production Build
 
 ```bash
 npm run preview
@@ -93,6 +102,7 @@ The build can be integrated into CI/CD pipelines using:
 
 ```yaml
 - run: npm install
+- run: npm audit fix
 - run: npm run lint
 - run: npm run build
 ```
